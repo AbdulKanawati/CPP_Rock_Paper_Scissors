@@ -29,7 +29,25 @@ struct stGameResults
     string WinnerName = "";
 };
 
+void StartGame()
+{
+    char PlayAgain = 'Y';
+    do
+    {
+        ResetScreen();
+        // The PlayGame function will be implemented later.
+        // Then, we will display the Game Over screen.
+        ShowGameOverScreen();
+        ShowFinalGameResults();
+        cout << endl << Tabs(3) << "Do you want to play again? Y/N? ";
+        cin >> PlayAgain;
+    } while (PlayAgain == 'Y' || PlayAgain == 'y');
+}
+
 int main()
 {
-    
+    //Seeds the random number generator in c++, called only once
+    srand((unsigned)time(NULL));
+    StartGame();
+    return 0;
 }
