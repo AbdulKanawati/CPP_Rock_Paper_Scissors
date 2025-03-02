@@ -29,14 +29,22 @@ struct stGameResults
     string WinnerName = "";
 };
 
+// Function to reset the console screen
+void ResetScreen()
+{
+    system("cls");
+    system("color 0F");
+}
+
 void StartGame()
 {
     char PlayAgain = 'Y';
     do
     {
         ResetScreen();
-        // The PlayGame function will be implemented later.
-        // Then, we will display the Game Over screen.
+        // This struct will store the final result of all rounds.
+        // The PlayGame function will create game rounds after asking for the number of rounds.
+        stGameResults GameResults = PlayGame(ReadHowManyRounds());
         ShowGameOverScreen();
         ShowFinalGameResults();
         cout << endl << Tabs(3) << "Do you want to play again? Y/N? ";
