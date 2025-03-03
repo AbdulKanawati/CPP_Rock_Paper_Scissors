@@ -29,6 +29,16 @@ struct stGameResults
     string WinnerName = "";
 };
 
+void ShowGameOverScreen()
+{
+    cout << Tabs(2) <<
+        "__________________________________________________________\n\n";
+    cout << Tabs(2) << " +++ G a m e O v e r
+        ++ + \n";
+        cout << Tabs(2) <<
+        "__________________________________________________________\n\n";
+}
+
 // Function to reset the console screen
 void ResetScreen()
 {
