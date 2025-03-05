@@ -42,6 +42,12 @@ enGameChoice ReadPlayer1Choice()
     return (enGameChoice)Choice;
 }
 
+// Function to generate a random choice for the computer
+enGameChoice GetComputerChoice()
+{
+    return (enGameChoice)RandomNumber(1, 3);
+}
+
 stGameResults PlayGame(short HowManyRounds)
 {
     stRoundInfo RoundInfo;
