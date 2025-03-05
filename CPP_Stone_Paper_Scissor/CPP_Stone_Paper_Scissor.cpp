@@ -1,5 +1,6 @@
 #include<iostream>
 #include<cstdlib>
+
 using namespace std;
 
 // Enum for game choices
@@ -28,6 +29,18 @@ struct stGameResults
     enWinner GameWinner;
     string WinnerName = "";
 };
+
+// Function to get Player1's choice with input validation
+enGameChoice ReadPlayer1Choice()
+{
+    short Choice = 1;
+    do
+    {
+        cout << "\nYour Choice: [1]:Stone, [2]:Paper, [3]:Scissors? ";
+        cin >> Choice;
+    } while (Choice < 1 || Choice > 3);
+    return (enGameChoice)Choice;
+}
 
 stGameResults PlayGame(short HowManyRounds)
 {
