@@ -29,6 +29,29 @@ struct stGameResults
     string WinnerName = "";
 };
 
+stGameResults PlayGame(short HowManyRounds)
+{
+    stRoundInfo RoundInfo;
+    short Player1WinTimes = 0, ComputerWinTimes = 0, DrawTimes = 0;
+
+    for (short GameRound = 1; GameRound <= HowManyRounds; GameRound++)
+    {
+        cout << "\nRound [" << GameRound << "] begins:\n";
+        RoundInfo.RoundNumber = GameRound;
+        RoundInfo.Player1Choice = ReadPlayer1Choice();
+        RoundInfo.ComputerChoice = GetComputerChoice();
+        RoundInfo.Winner = WhoWonTheRound(RoundInfo);
+        RoundInfo.WinnerName = WinnerName(RoundInfo.Winner);
+
+        if (RoundInfo.Winner == enWinner::Player1) Player1WinTimes++;
+        else if (RoundInfo.Winner == enWinner::Computer) ComputerWinTimes++;
+        else DrawTimes++;
+
+        PrintRoundResults(RoundInfo);
+    }
+    return FillGameResults(HowManyRounds, Player1WinTimes, ComputerWinTimes, DrawTimes);
+}
+
 void ShowGameOverScreen()
 {
     cout << Tabs(2) <<
@@ -37,6 +60,18 @@ void ShowGameOverScreen()
         ++ + \n";
         cout << Tabs(2) <<
         "__________________________________________________________\n\n";
+}
+
+// Function to read the number of rounds from the user
+short ReadHowManyRounds()
+{
+    short GameRounds;
+    do
+    {
+        cout << "How Many Rounds (1 to 10)? ";
+        cin >> GameRounds;
+    } while (GameRounds < 1 || GameRounds > 10);
+    return GameRounds;
 }
 
 // Function to reset the console screen
@@ -52,8 +87,6 @@ void StartGame()
     do
     {
         ResetScreen();
-        // This struct will store the final result of all rounds.
-        // The PlayGame function will create game rounds after asking for the number of rounds.
         stGameResults GameResults = PlayGame(ReadHowManyRounds());
         ShowGameOverScreen();
         ShowFinalGameResults();
