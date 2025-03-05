@@ -30,6 +30,13 @@ struct stGameResults
     string WinnerName = "";
 };
 
+// Function to generate a random number within a range
+int RandomNumber(int From, int To)
+{
+    return rand() % (To - From + 1) + From;
+}
+
+
 // Function to get Player1's choice with input validation
 enGameChoice ReadPlayer1Choice()
 {
