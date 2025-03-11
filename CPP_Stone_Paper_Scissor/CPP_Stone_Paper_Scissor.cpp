@@ -36,6 +36,13 @@ int RandomNumber(int From, int To)
     return rand() % (To - From + 1) + From;
 }
 
+// Function to get the winner's name as a string
+string WinnerName(enWinner Winner)
+{
+    string arrWinnerName[3] = { "Player1", "Computer", "No Winner" };
+    return arrWinnerName[Winner - 1];
+}
+
 // Function to determine who won the round
 enWinner WhoWonTheRound(stRoundInfo RoundInfo)
 {
