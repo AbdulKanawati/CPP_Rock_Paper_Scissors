@@ -97,6 +97,17 @@ void PrintRoundResults(stRoundInfo RoundInfo)
     SetWinnerScreenColor(RoundInfo.Winner);
 }
 
+// Function to determine the overall game winner
+enWinner WhoWonTheGame(short Player1WinTimes, short ComputerWinTimes)
+{
+    if (Player1WinTimes > ComputerWinTimes)
+        return enWinner::Player1;
+    else if (ComputerWinTimes > Player1WinTimes)
+        return enWinner::Computer;
+    else
+        return enWinner::Draw;
+}
+
 // Function to get Player1's choice with input validation
 enGameChoice ReadPlayer1Choice()
 {
