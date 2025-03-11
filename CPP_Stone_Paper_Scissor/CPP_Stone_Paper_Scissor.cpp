@@ -61,6 +61,24 @@ enWinner WhoWonTheRound(stRoundInfo RoundInfo)
     return enWinner::Draw;
 }
 
+// Function to get the name of a choice as a string
+string ChoiceName(enGameChoice Choice)
+{
+    string arrGameChoices[3] = { "Stone", "Paper", "Scissors" };
+    return arrGameChoices[Choice - 1];
+}
+
+// Function to display round results
+void PrintRoundResults(stRoundInfo RoundInfo)
+{
+    cout << "\n____________Round [" << RoundInfo.RoundNumber << "]____________\n\n";
+    cout << "Player1 Choice: " << ChoiceName(RoundInfo.Player1Choice) << endl;
+    cout << "Computer Choice: " << ChoiceName(RoundInfo.ComputerChoice) << endl;
+    cout << "Round Winner : [" << RoundInfo.WinnerName << "]\n";
+    cout << "__________________________________\n" << endl;
+    SetWinnerScreenColor(RoundInfo.Winner);
+}
+
 // Function to get Player1's choice with input validation
 enGameChoice ReadPlayer1Choice()
 {
