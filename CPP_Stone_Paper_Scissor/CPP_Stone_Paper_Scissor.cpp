@@ -108,6 +108,19 @@ enWinner WhoWonTheGame(short Player1WinTimes, short ComputerWinTimes)
         return enWinner::Draw;
 }
 
+// Function to populate the game results structure
+stGameResults FillGameResults(int GameRounds, short Player1WinTimes, short ComputerWinTimes, short DrawTimes)
+{
+    stGameResults GameResults;
+    GameResults.GameRounds = GameRounds;
+    GameResults.Player1WinTimes = Player1WinTimes;
+    GameResults.Computer2WinTimes = ComputerWinTimes;
+    GameResults.DrawTimes = DrawTimes;
+    GameResults.GameWinner = WhoWonTheGame(Player1WinTimes, ComputerWinTimes);
+    GameResults.WinnerName = WinnerName(GameResults.GameWinner);
+    return GameResults;
+}
+
 // Function to get Player1's choice with input validation
 enGameChoice ReadPlayer1Choice()
 {
