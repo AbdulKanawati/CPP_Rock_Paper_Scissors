@@ -172,6 +172,17 @@ void ShowGameOverScreen()
         "__________________________________________________________\n\n";
 }
 
+// Function to display the final results
+void ShowFinalGameResults(stGameResults GameResults)
+{
+    cout << "\nGame Rounds: " << GameResults.GameRounds << endl;
+    cout << "Player1 won times: " << GameResults.Player1WinTimes << endl;
+    cout << "Computer won times: " << GameResults.Computer2WinTimes << endl;
+    cout << "Draw times: " << GameResults.DrawTimes << endl;
+    cout << "Final Winner: " << GameResults.WinnerName << endl;
+    SetWinnerScreenColor(GameResults.GameWinner);
+}
+
 // Function to read the number of rounds from the user
 short ReadHowManyRounds()
 {
