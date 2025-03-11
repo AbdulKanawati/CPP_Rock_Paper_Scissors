@@ -36,6 +36,23 @@ int RandomNumber(int From, int To)
     return rand() % (To - From + 1) + From;
 }
 
+// Function to determine who won the round
+enWinner WhoWonTheRound(stRoundInfo RoundInfo)
+{
+    if (RoundInfo.Player1Choice == RoundInfo.ComputerChoice)
+        return enWinner::Draw;
+
+    switch (RoundInfo.Player1Choice)
+    {
+    case enGameChoice::Stone:
+        return (RoundInfo.ComputerChoice == enGameChoice::Paper) ? enWinner::Computer : enWinner::Player1;
+    case enGameChoice::Paper:
+        return (RoundInfo.ComputerChoice == enGameChoice::Scissors) ? enWinner::Computer : enWinner::Player1;
+    case enGameChoice::Scissors:
+        return (RoundInfo.ComputerChoice == enGameChoice::Stone) ? enWinner::Computer : enWinner::Player1;
+    }
+    return enWinner::Draw;
+}
 
 // Function to get Player1's choice with input validation
 enGameChoice ReadPlayer1Choice()
