@@ -68,6 +68,24 @@ string ChoiceName(enGameChoice Choice)
     return arrGameChoices[Choice - 1];
 }
 
+// Function to change the console color based on the winner
+void SetWinnerScreenColor(enWinner Winner)
+{
+    switch (Winner)
+    {
+    case enWinner::Player1:
+        system("color 2F"); // Green for Player1
+        break;
+    case enWinner::Computer:
+        system("color 4F"); // Red for Computer, with a beep sound
+        cout << "\a";
+        break;
+    default:
+        system("color 6F"); // Yellow for Draw
+        break;
+    }
+}
+
 // Function to display round results
 void PrintRoundResults(stRoundInfo RoundInfo)
 {
