@@ -162,9 +162,23 @@ stGameResults PlayGame(short HowManyRounds)
     return FillGameResults(HowManyRounds, Player1WinTimes, ComputerWinTimes, DrawTimes);
 }
 
+string Tabs(short NumberOfTabs)
+{
+    string t = "";
+    for (int i = 1; i < NumberOfTabs; i++)
+    {
+        t = t + "\t";
+        cout << t;
+    }
+    return t;
+}
+
 void ShowGameOverScreen()
 {
-    cout << " +++ G a m e O v e r++ + \n";
+     cout << Tabs(2) <<"__________________________________________________________\n\n";
+     cout << Tabs(2) << " +++ G a m e O v e r +++ \n";
+     cout << Tabs(2) <<"__________________________________________________________\n\n";
+    
 
 }
 
