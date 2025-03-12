@@ -164,12 +164,8 @@ stGameResults PlayGame(short HowManyRounds)
 
 void ShowGameOverScreen()
 {
-    cout << Tabs(2) <<
-        "__________________________________________________________\n\n";
-    cout << Tabs(2) << " +++ G a m e O v e r
-        ++ + \n";
-        cout << Tabs(2) <<
-        "__________________________________________________________\n\n";
+    cout << " +++ G a m e O v e r++ + \n";
+
 }
 
 // Function to display the final results
@@ -210,8 +206,8 @@ void StartGame()
         ResetScreen();
         stGameResults GameResults = PlayGame(ReadHowManyRounds());
         ShowGameOverScreen();
-        ShowFinalGameResults();
-        cout << endl << Tabs(3) << "Do you want to play again? Y/N? ";
+        ShowFinalGameResults(GameResults);
+        cout << "\nDo you want to play again? (Y/N) ";
         cin >> PlayAgain;
     } while (PlayAgain == 'Y' || PlayAgain == 'y');
 }
